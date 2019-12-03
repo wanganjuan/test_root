@@ -1,0 +1,84 @@
+{
+	"name": "tuling",
+	"displayName": "图聆鼓励师",
+	"description": "代码写累了，时间成了，休息一下",
+	"publisher": "wjhs",
+	"version": "0.0.1",
+	"icon": "images/logo.png",
+	"engines": {
+		"vscode": "^1.40.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"图聆",
+		"飞哥",
+		"束哥"
+	],
+	"activationEvents": [
+		"onCommand:tuling.showReminderView"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "tuling.showReminderView",
+				"title": "图聆鼓励师"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "图聆",
+			"properties": {
+					"tuling.reminderViewIntervalInMinutes": {
+							"type": "number",
+							"default": 1,
+							"description": "展示提醒页面的时间间隔（分钟）"
+					},
+					"tuling.title": {
+							"type": "array",
+							"default": [
+								"图聆飞哥提醒你，代码写久了，自测了嘛~",
+								"图聆束哥提醒你，代码写久了，休息下~"
+							],
+							"description": "页面内展示文字"
+					},
+					"tuling.type": {
+							"type": "string",
+							"default": "default",
+							"description": "类型：default:默认图；url：网络图"
+					},
+					"tuling.customImages": {
+							"type": "array",
+							"default": [
+									"http://b-ssl.duitang.com/uploads/item/201806/04/20180604090459_gqqjo.jpg"
+							],
+							"description": "用户设置图片地址"
+					}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/wanganjuan/test_root"
+},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.40.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"tslint": "^5.20.0",
+		"vscode-test": "^1.2.2"
+	}
+}
