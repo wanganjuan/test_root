@@ -12,14 +12,17 @@ export class ReminderView {
 
         if (this.panel) {
             this.panel.webview.html = this.generateHtml(imagePath, title);
+            // 重新熏染
             this.panel.reveal();
         } else {
-            this.panel = vscode.window.createWebviewPanel("ycy", "图聆鼓励师", vscode.ViewColumn.Two, {
+            // 默认情况下，在Web视图中禁用JavaScript，但可以通过传入enableScripts: true选项轻松启用
+            // 默认情况下当webview被隐藏时资源会被销毁，通过retainContextWhenHidden: true会一直保存，但会占用较大内存开销，仅在需要时开启；
+            this.panel = vscode.window.createWebviewPanel("ycy", "图聆鼓励师", vscode.ViewColumn.One, {
                 enableScripts: true,
                 retainContextWhenHidden: true,
             });
             this.panel.webview.html = this.generateHtml(imagePath, title);
-            // 
+            // 可以通过panel.dispose()方法主动关闭webview。
             this.panel.onDidDispose(() => {
                 this.panel = undefined;
             });
