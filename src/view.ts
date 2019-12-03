@@ -17,7 +17,7 @@ export class ReminderView {
         } else {
             // 默认情况下，在Web视图中禁用JavaScript，但可以通过传入enableScripts: true选项轻松启用
             // 默认情况下当webview被隐藏时资源会被销毁，通过retainContextWhenHidden: true会一直保存，但会占用较大内存开销，仅在需要时开启；
-            this.panel = vscode.window.createWebviewPanel("ycy", "图聆鼓励师", vscode.ViewColumn.One, {
+            this.panel = vscode.window.createWebviewPanel("tuling", "图聆鼓励师", vscode.ViewColumn.One, {
                 enableScripts: true,
                 retainContextWhenHidden: true,
             });

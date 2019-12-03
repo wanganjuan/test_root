@@ -3,7 +3,7 @@
 	"displayName": "图聆鼓励师",
 	"description": "代码写累了，时间成了，休息一下",
 	"publisher": "wjhs",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"icon": "images/logo.png",
 	"engines": {
 		"vscode": "^1.40.0"
@@ -17,7 +17,8 @@
 		"束哥"
 	],
 	"activationEvents": [
-		"onCommand:tuling.showReminderView"
+		"onCommand:tuling.showReminderView",
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -33,7 +34,7 @@
 			"properties": {
 					"tuling.reminderViewIntervalInMinutes": {
 							"type": "number",
-							"default": 1,
+							"default": 10,
 							"description": "展示提醒页面的时间间隔（分钟）"
 					},
 					"tuling.title": {
